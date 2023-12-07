@@ -1,9 +1,48 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styles from "./modal.module.css";
 import Button from "../buttons/Button";
 import Colors from "./Colors";
+import { useDispatch, useSelector } from "react-redux";
+import { addChats, setButtons, setModal } from "../store/appSlice";
+import { randomKey, trimString } from "../help";
 
 const Modal = () => {
+  const store = useSelector((store) => store.app);
+  const [input, setInput] = useState({
+    name: "",
+    color: "",
+    id: randomKey(),
+  });
+
+  console.log(input);
+
+  const dispatch = useDispatch();
+
+  const name = useRef();
+
+  function changeInput(field, value) {
+    setInput((prevState) => ({
+      ...prevState,
+      [field]: value,
+    }));
+  }
+
+  function newChat(id) {
+    const obj = {
+      ...store.chats,
+      [id]: { name: input.name, color: input.color, notes: [] },
+    };
+    dispatch(addChats(obj));
+  }
+
+  function onCreate() {
+    if (trimString(input.name) && input.color) {
+      dispatch(setModal());
+      dispatch(setButtons(input));
+      newChat(input.id);
+    }
+  }
+
   return (
     <div className={styles.box}>
       <div className={styles.modal}>
@@ -13,18 +52,24 @@ const Modal = () => {
         <div className={styles.input}>
           <h2>Group name</h2>
           <div className={styles.inputbox}>
-            <input type="text" placeholder="Enter group name" />
+            <input
+              type="text"
+              placeholder="Enter group name"
+              onChange={(e) => {
+                changeInput("name", trimString(e.target.value));
+              }}
+            />
           </div>
         </div>
         <div className={styles.colors}>
           <h2>Choose colour</h2>
-          <Colors />
+          <Colors changeInput={changeInput} />
         </div>
         <div className={styles.create}>
-          <button>create</button>
+          <button onClick={() => onCreate()}>create</button>
         </div>
       </div>
-      <div className={styles.bg}></div>
+      <div className={styles.bg} onClick={() => dispatch(setModal())}></div>
     </div>
   );
 };

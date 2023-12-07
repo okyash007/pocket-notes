@@ -3,17 +3,17 @@ import styles from "./buttons.module.css";
 import { NavLink } from "react-router-dom";
 import { Icon } from "../styled";
 
-const Button = () => {
+const Button = ({ id, name, color }) => {
   return (
     <div>
       <NavLink
-        to={"/chats/1"}
+        to={"/chats/" + id}
         className={({ isActive, isPending }) =>
           isPending ? styles.button : isActive ? styles.active : styles.button
         }
       >
-        <Icon $bgColor="red">HE</Icon>
-        <p>hello</p>
+        <Icon $bgColor={color}>HE</Icon>
+        <p>{name}</p>
       </NavLink>
     </div>
   );

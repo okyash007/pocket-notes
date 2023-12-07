@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./color.module.css";
-import tick from '../assets/tick.svg'
+import tick from "../assets/tick.svg";
 
-const Colors = () => {
+const Colors = ({ changeInput }) => {
   const colors = [
     "#B38BFA",
     "#FF79F2",
@@ -19,7 +19,7 @@ const Colors = () => {
           <input
             id={m}
             value={m}
-            // onChange={(e) => changeInput(e.target.name, e.target.value)}
+            onChange={(e) => changeInput(e.target.name, e.target.value)}
             name="color"
             type="radio"
           />
