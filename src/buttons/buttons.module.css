@@ -1,0 +1,73 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  min-width: 20%;
+  position: relative;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+}
+
+.heading h1 {
+  margin: 1rem;
+}
+
+.buttons {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.buttons::-webkit-scrollbar {
+  background-color: #d9d9d9;
+  width: 0.5rem;
+  border-radius: 1rem;
+}
+
+.buttons::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  width: 0.25rem;
+}
+
+.button {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.button div,
+.active div {
+  margin: 1rem;
+}
+
+.active {
+  background-color: rgba(47, 47, 47, 0.17);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: black;
+  border-radius: 1rem;
+}
+
+.create{
+    position: absolute;
+    display: flex;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.create button{
+    color: white;
+    font-size: 3rem;
+}
+
+@media only screen and (max-width: 780px) {
+    .box {
+      width: 100vw;
+    }
+  }
