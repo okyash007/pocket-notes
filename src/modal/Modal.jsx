@@ -1,10 +1,9 @@
 import React, { useRef, useState } from "react";
 import styles from "./modal.module.css";
-import Button from "../buttons/Button";
 import Colors from "./Colors";
 import { useDispatch, useSelector } from "react-redux";
 import { addChats, setButtons, setModal } from "../store/appSlice";
-import { randomKey, trimString } from "../help";
+import { checkPropertyInArray, randomKey, trimString } from "../help";
 
 const Modal = () => {
   const store = useSelector((store) => store.app);
@@ -13,8 +12,6 @@ const Modal = () => {
     color: "",
     id: randomKey(),
   });
-
-  console.log(input);
 
   const dispatch = useDispatch();
 
@@ -36,7 +33,12 @@ const Modal = () => {
   }
 
   function onCreate() {
-    if (trimString(input.name) && input.color) {
+    if (
+      trimString(input.name) &&
+      input.color &&
+      !checkPropertyInArray("name", input.name, store.buttons)
+    ) {
+      console.log(checkPropertyInArray("name", input.name, store.buttons));
       dispatch(setModal());
       dispatch(setButtons(input));
       newChat(input.id);

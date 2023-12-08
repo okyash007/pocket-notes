@@ -1,10 +1,10 @@
-.box{
-    flex-grow: 1;
-    background-color: aqua;
+.box {
+  flex-grow: 1;
+  background-color: #dae5f5;
 }
 
 @media only screen and (max-width: 780px) {
-    .box {
-      display: none;
-    }
+  .box {
+    display: none;
   }
+}

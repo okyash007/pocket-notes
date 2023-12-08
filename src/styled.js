@@ -18,9 +18,11 @@ export const IconButton = styled.button`
   cursor: pointer;
   border-radius: 100%;
   border: 0;
+  outline: none;
 
-  ${({ $bgColor, $size }) => css`
+  ${({ $bgColor, $size, $color }) => css`
     background-color: ${$bgColor};
+    color: ${$color};
     width: ${$size};
     height: ${$size};
   `}

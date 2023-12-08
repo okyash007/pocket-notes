@@ -43,3 +43,23 @@ export function getCurrentDateTime() {
   const formattedDate = `${day} ${month} ${year}`;
   return { date: formattedDate, time: time };
 }
+
+export function getInitials(str) {
+  let words = str.split(" ");
+  if (words.length === 1) {
+    return words[0].substring(0, 2).toUpperCase();
+  } else {
+    return words[0][0].toUpperCase() + words[1][0].toUpperCase();
+  }
+}
+
+export function checkPropertyInArray(property, value, arr) {
+  let isCapital = value.toUpperCase();
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i][property].toUpperCase() === isCapital) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./buttons.module.css";
 import { NavLink } from "react-router-dom";
 import { Icon } from "../styled";
+import { getInitials } from "../help";
 
 const Button = ({ id, name, color }) => {
   return (
@@ -12,8 +13,8 @@ const Button = ({ id, name, color }) => {
           isPending ? styles.button : isActive ? styles.active : styles.button
         }
       >
-        <Icon $bgColor={color}>HE</Icon>
-        <p>{name}</p>
+        <Icon $bgColor={color}>{getInitials(name)}</Icon>
+        <p className={styles.name}>{name}</p>
       </NavLink>
     </div>
   );
