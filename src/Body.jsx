@@ -1,8 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Buttons from "./buttons/Buttons";
-import Modal from "./modal/modal";
 import { useSelector } from "react-redux";
+import Modal from "./modal/Modal";
 
 const Body = () => {
   const store = useSelector((store) => store.app);
