@@ -18,8 +18,15 @@ export function trimString(str) {
 }
 
 export function getCurrentDateTime() {
-  const date = new Date();
-  const months = [
+  const now = new Date();
+
+  const formattedTime = now.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const day = now.getDate();
+  const monthNames = [
     "January",
     "February",
     "March",
@@ -33,15 +40,11 @@ export function getCurrentDateTime() {
     "November",
     "December",
   ];
-  const month = months[date.getMonth()];
-  const day = date.getDate();
-  const year = date.getFullYear();
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-  const ampm = hours >= 12 ? "pm" : "am";
-  const time = `${hours % 12}:${minutes}${ampm}`;
+  const month = monthNames[now.getMonth()];
+  const year = now.getFullYear();
   const formattedDate = `${day} ${month} ${year}`;
-  return { date: formattedDate, time: time };
+
+  return { date: formattedDate, time: formattedTime };
 }
 
 export function getInitials(str) {

@@ -7,6 +7,10 @@
   animation: 0.2s ease-out 0s 1 onAppeare;
 }
 
+.heading {
+  display: flex;
+}
+
 .bg {
   background: rgba(47, 47, 47, 0.75);
   width: 100vw;
@@ -18,6 +22,7 @@
   background-color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
+  animation: 0.2s ease-out 0s 1 onOpen;
 }
 
 .input {
@@ -33,7 +38,7 @@
   border: 2px solid #ccc;
   outline: none;
   border-radius: 2rem;
-  padding: 0 1.5rem;
+  padding: 0.5rem 1.5rem;
   font-size: 1rem;
 }
 
@@ -75,5 +80,25 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes onOpen {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .input,
+  .colors,
+  .heading {
+    flex-direction: column;
+    align-items: center;
   }
 }

@@ -84,4 +84,8 @@
   .box {
     width: 100vw;
   }
+
+  .name{
+    width: 70%;
+  }
 }

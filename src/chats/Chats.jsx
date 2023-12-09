@@ -54,7 +54,7 @@ const Chats = () => {
         <Icon className={styles.icon} $bgColor={chatDetails.color}>
           {getInitials(chatDetails.name)}
         </Icon>
-        <p>{chatDetails.name}</p>
+        <p className={styles.name}>{chatDetails.name}</p>
       </div>
       <div className={styles.chats} ref={chatScroll}>
         {chatDetails.notes.map((m, i) => (

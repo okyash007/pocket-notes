@@ -82,6 +82,13 @@
   margin: 1rem;
 }
 
+.name{
+  width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @media only screen and (max-width: 780px) {
   .box {
     position: absolute;
