@@ -38,7 +38,6 @@ const Modal = () => {
       input.color &&
       !checkPropertyInArray("name", input.name, store.buttons)
     ) {
-      console.log(checkPropertyInArray("name", input.name, store.buttons));
       dispatch(setModal());
       dispatch(setButtons(input));
       newChat(input.id);

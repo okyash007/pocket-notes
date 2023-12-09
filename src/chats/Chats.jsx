@@ -11,13 +11,11 @@ const Chats = () => {
   const params = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [text, setText] = useState(null);
+  const [text, setText] = useState("");
   const chatScroll = useRef(null);
 
   const store = useSelector((store) => store.app);
   const chatDetails = store.chats[params.id];
-
-  console.log(chatDetails);
 
   if (!chatDetails) {
     useEffect(() => {
@@ -65,8 +63,8 @@ const Chats = () => {
       </div>
       <div className={styles.input}>
         <textarea
-          value={text}
-          onChange={(e) => setText(trimString(e.target.value))}
+        value={text}
+          onChange={(e) => setText(e.target.value)}
           placeholder="Enter your text here..........."
         ></textarea>
         <IconButton

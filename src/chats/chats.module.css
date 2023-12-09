@@ -22,19 +22,21 @@
 .chats {
   flex-grow: 1;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
 }
 
 .chats::-webkit-scrollbar {
-  background-color: rgba(0, 0, 0, 0.63);
+  background-color: #d9d9d9;
   width: 0.75rem;
-  border-radius: 1rem;
 }
 
 .chats::-webkit-scrollbar-thumb {
   background-color: #ffffff;
   border-radius: 1rem;
   width: 0.5rem;
-  border: 2px solid rgba(0, 0, 0, 0.63);
+  border: 2px solid #d9d9d9;
 }
 
 .input {
@@ -55,14 +57,14 @@
 
 .input textarea::-webkit-scrollbar {
   background-color: #d9d9d9;
-  width: 0.5rem;
-  border-radius: 1rem;
+  width: 0.75rem;
+  border-radius: 0 0.5rem 0.5rem 0;
 }
 
 .input textarea::-webkit-scrollbar-thumb {
   background-color: #ffffff;
   border-radius: 1rem;
-  width: 0.25rem;
+  border: 2px solid #d9d9d9;
 }
 
 .input button {
@@ -86,7 +88,7 @@
     width: 100%;
     height: 100vh;
   }
-  .head button{
+  .head button {
     display: flex;
   }
 }
