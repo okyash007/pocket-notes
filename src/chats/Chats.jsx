@@ -12,6 +12,7 @@ const Chats = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [text, setText] = useState(null);
+  const chatScroll = useRef(null);
 
   const store = useSelector((store) => store.app);
   const chatDetails = store.chats[params.id];
@@ -38,6 +39,14 @@ const Chats = () => {
     dispatch(addChats(obj));
   }
 
+  // function handleScroll() {
+  //   setTimeout(() => {
+  //     if (chatScroll.current) {
+  //       chatScroll.current.scrollTop = chatScroll.current.scrollHeight;
+  //     }
+  //   }, 500);
+  // }
+
   return (
     <div className={styles.box}>
       <div className={styles.head}>
@@ -49,7 +58,7 @@ const Chats = () => {
         </Icon>
         <p>{chatDetails.name}</p>
       </div>
-      <div className={styles.chats}>
+      <div className={styles.chats} ref={chatScroll}>
         {chatDetails.notes.map((m, i) => (
           <Chat text={m.text} date={m.time.date} time={m.time.time} key={i} />
         ))}
@@ -68,6 +77,7 @@ const Chats = () => {
                 time: getCurrentDateTime(),
               });
               setText("");
+              // handleScroll();
             }
           }}
           $size="3rem"

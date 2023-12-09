@@ -3,6 +3,7 @@
   background-color: #dae5f5;
   display: flex;
   flex-direction: column;
+  animation: 0.2s ease-out 0s 1 onAppeare;
 }
 
 .head {
@@ -24,15 +25,16 @@
 }
 
 .chats::-webkit-scrollbar {
-  background-color: #d9d9d9;
-  width: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.63);
+  width: 0.75rem;
   border-radius: 1rem;
 }
 
 .chats::-webkit-scrollbar-thumb {
   background-color: #ffffff;
   border-radius: 1rem;
-  width: 0.25rem;
+  width: 0.5rem;
+  border: 2px solid rgba(0, 0, 0, 0.63);
 }
 
 .input {
@@ -86,5 +88,14 @@
   }
   .head button{
     display: flex;
+  }
+}
+
+@keyframes onAppeare {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
